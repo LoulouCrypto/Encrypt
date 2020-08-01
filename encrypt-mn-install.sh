@@ -10,11 +10,12 @@ CONFIG_FILE='encrypt.conf'
 CONFIGFOLDER='/root/.encrypt'
 COIN_PATH='/usr/local/bin'
 #64 bit only
-COIN_TGZ='https://github.com/EncryptNetwork/EncryptNetwork/releases/download/1.3.0.0/encrypt-1.3.0.0-linux.zip'
+COIN_TGZ='https://github.com/EncryptNetwork/EncryptNetwork/releases/download/v1.3.1/encrypt-1.3.1.0-linux.zip'
 COIN_PATHPART=''
 BOOTSTRAP_TGZ=''
 COIN_DAEMON="encryptd"
 COIN_CLI="encrypt-cli"
+COIN_TX="encrypt-tx"
 COIN_NAME='Encrypt'
 COIN_PORT=2020
 
@@ -54,8 +55,8 @@ figlet -f slant "Encrypt"
   wget --progress=bar:force $COIN_TGZ 2>&1 | progressfilt
   COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
   unzip $COIN_ZIP
-  chmod +x $COIN_DAEMON $COIN_CLI
-  cp -p $COIN_DAEMON $COIN_CLI $COIN_PATH
+  chmod +x $COIN_DAEMON $COIN_CLI COIN_TX
+  cp -p $COIN_DAEMON $COIN_CLI COIN_TX $COIN_PATH
   rm -f $COIN_ZIP
   cd ~ >/dev/null
   rm -rf $TMP_FOLDER >/dev/null 2>&1
